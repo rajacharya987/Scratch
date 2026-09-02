@@ -1,0 +1,27 @@
+[
+  {
+    "id": "gui.menuBar.saveNow",
+    "description": "Menu bar item for saving now",
+    "defaultMessage": "Save now"
+  },
+  {
+    "id": "gui.menuBar.saveAsCopy",
+    "description": "Menu bar item for saving as a copy",
+    "defaultMessage": "Save as a copy"
+  },
+  {
+    "id": "gui.menuBar.new",
+    "description": "Menu bar item for creating a new project",
+    "defaultMessage": "New"
+  },
+  {
+    "id": "gui.menuBar.file",
+    "description": "Text for file dropdown menu",
+    "defaultMessage": "File"
+  },
+  {
+    "id": "gui.menuBar.downloadToComputer",
+    "description": "Menu bar item for downloading a project to your computer",
+    "defaultMessage": "Save to your computer"
+  }
+]

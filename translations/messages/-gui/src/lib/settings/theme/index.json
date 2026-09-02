@@ -1,0 +1,12 @@
+[
+  {
+    "id": "gui.blockTheme.default",
+    "description": "label for default theme",
+    "defaultMessage": "Default"
+  },
+  {
+    "id": "gui.blockTheme.catBlocks",
+    "description": "label for cat blocks theme",
+    "defaultMessage": "Cat Blocks"
+  }
+]

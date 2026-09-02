@@ -1,0 +1,57 @@
+[
+  {
+    "id": "gui.menuBar.tutorialsLibrary",
+    "description": "accessibility text for the tutorials button",
+    "defaultMessage": "Tutorials"
+  },
+  {
+    "id": "gui.menuBar.debug",
+    "description": "accessibility text for the debug button",
+    "defaultMessage": "Debug"
+  },
+  {
+    "id": "gui.menuBar.home",
+    "description": "accessibility text for the home button",
+    "defaultMessage": "Home"
+  },
+  {
+    "id": "gui.menuBar.myStuff",
+    "description": "accessibility text for the my stuff button",
+    "defaultMessage": "My Stuff"
+  },
+  {
+    "id": "gui.menuBar.restoreSprite",
+    "description": "Menu bar item for restoring the last deleted sprite.",
+    "defaultMessage": "Restore Sprite"
+  },
+  {
+    "id": "gui.menuBar.restoreSound",
+    "description": "Menu bar item for restoring the last deleted sound.",
+    "defaultMessage": "Restore Sound"
+  },
+  {
+    "id": "gui.menuBar.restoreCostume",
+    "description": "Menu bar item for restoring the last deleted costume.",
+    "defaultMessage": "Restore Costume"
+  },
+  {
+    "id": "gui.menuBar.restore",
+    "description": "Menu bar item for restoring the last deleted item in its disabled state.",
+    "defaultMessage": "Restore"
+  },
+  {
+    "id": "gui.menuBar.remix",
+    "description": "Menu bar item for remixing",
+    "defaultMessage": "Remix"
+  },
+  {
+    "id": "gui.menuBar.joinScratch",
+    "description": "Link for creating a Scratch account",
+    "defaultMessage": "Join Scratch"
+  },
+  {
+    "id": "gui.menuBar.signIn",
+    "description": "Link for signing in to your Scratch account",
+    "defaultMessage": "Sign in"
+  }
+]

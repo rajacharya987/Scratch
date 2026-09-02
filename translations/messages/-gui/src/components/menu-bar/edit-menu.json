@@ -1,0 +1,17 @@
+[
+  {
+    "id": "gui.menuBar.edit",
+    "description": "Text for edit dropdown menu",
+    "defaultMessage": "Edit"
+  },
+  {
+    "id": "gui.menuBar.turboModeOff",
+    "description": "Menu bar item for turning off turbo mode",
+    "defaultMessage": "Turn off Turbo Mode"
+  },
+  {
+    "id": "gui.menuBar.turboModeOn",
+    "description": "Menu bar item for turning on turbo mode",
+    "defaultMessage": "Turn on Turbo Mode"
+  }
+]

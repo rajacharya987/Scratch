@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="7" failures="0" time="57.474">
+  <testsuite name="local-project-store" errors="0" failures="0" skipped="0" timestamp="2026-09-02T02:22:25" time="11.352" tests="3">
+    <testcase classname="local-project-store put and get a shared project from memory" name="local-project-store put and get a shared project from memory" time="0.01">
+    </testcase>
+    <testcase classname="local-project-store base64 round-trip" name="local-project-store base64 round-trip" time="0.002">
+    </testcase>
+    <testcase classname="local-project-store playerUrlForId builds a player hash link" name="local-project-store playerUrlForId builds a player hash link" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="MenuBar Component" errors="0" failures="0" skipped="0" timestamp="2026-09-02T02:22:25" time="34.646" tests="4">
+    <testcase classname="MenuBar Component menu bar with no About handler has no About button" name="MenuBar Component menu bar with no About handler has no About button" time="0.097">
+    </testcase>
+    <testcase classname="MenuBar Component menu bar with an About handler has an About button" name="MenuBar Component menu bar with an About handler has an About button" time="0.012">
+    </testcase>
+    <testcase classname="MenuBar Component triggering About button handler clicking on About button calls the handler" name="MenuBar Component triggering About button handler clicking on About button calls the handler" time="0.014">
+    </testcase>
+    <testcase classname="MenuBar Component triggering About button handler not clicking on About button does not call the handler" name="MenuBar Component triggering About button handler not clicking on About button does not call the handler" time="0.003">
+    </testcase>
+  </testsuite>
+</testsuites>

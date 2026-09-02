@@ -1,0 +1,17 @@
+[
+  {
+    "id": "gui.menuBar.modeMenu",
+    "description": "Mode menu item in the menu bar",
+    "defaultMessage": "Mode"
+  },
+  {
+    "id": "gui.menuBar.normalMode",
+    "description": "April fools: resets editor to not have any pranks",
+    "defaultMessage": "Normal mode"
+  },
+  {
+    "id": "gui.menuBar.caturdayMode",
+    "description": "April fools: Cat blocks mode",
+    "defaultMessage": "Caturday mode"
+  }
+]

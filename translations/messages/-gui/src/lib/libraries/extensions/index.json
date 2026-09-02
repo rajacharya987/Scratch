@@ -1,0 +1,177 @@
+[
+  {
+    "id": "gui.extension.threed.name",
+    "description": "Name for the 3D world extension",
+    "defaultMessage": "3D"
+  },
+  {
+    "id": "gui.extension.threed.description",
+    "description": "Description for the 3D extension",
+    "defaultMessage": "Make 3D games on the same stage. Cubes, cameras, lights, and .glb models."
+  },
+  {
+    "id": "gui.extension.music.name",
+    "description": "Name for the 'Music' extension",
+    "defaultMessage": "Music"
+  },
+  {
+    "id": "gui.extension.music.description",
+    "description": "Description for the 'Music' extension",
+    "defaultMessage": "Play instruments and drums."
+  },
+  {
+    "id": "gui.extension.pen.name",
+    "description": "Name for the 'Pen' extension",
+    "defaultMessage": "Pen"
+  },
+  {
+    "id": "gui.extension.pen.description",
+    "description": "Description for the 'Pen' extension",
+    "defaultMessage": "Draw with your sprites."
+  },
+  {
+    "id": "gui.extension.videosensing.name",
+    "description": "Name for the 'Video Sensing' extension",
+    "defaultMessage": "Video Sensing"
+  },
+  {
+    "id": "gui.extension.videosensing.description",
+    "description": "Description for the 'Video Sensing' extension",
+    "defaultMessage": "Sense motion with the camera."
+  },
+  {
+    "id": "gui.extension.faceSensing.name",
+    "description": "Name for the 'Face Sensing' extension",
+    "defaultMessage": "Face Sensing"
+  },
+  {
+    "id": "gui.extension.faceSensing.description",
+    "description": "Description for the 'Face Sensing' extension",
+    "defaultMessage": "Sense faces with the camera."
+  },
+  {
+    "id": "gui.extension.text2speech.name",
+    "description": "Name for the Text to Speech extension",
+    "defaultMessage": "Text to Speech"
+  },
+  {
+    "id": "gui.extension.text2speech.description",
+    "description": "Description for the Text to speech extension",
+    "defaultMessage": "Make your projects talk."
+  },
+  {
+    "id": "gui.extension.translate.name",
+    "description": "Name for the Translate extension",
+    "defaultMessage": "Translate"
+  },
+  {
+    "id": "gui.extension.translate.description",
+    "description": "Description for the Translate extension",
+    "defaultMessage": "Translate text into many languages."
+  },
+  {
+    "id": "gui.extension.makeymakey.description",
+    "description": "Description for the 'Makey Makey' extension",
+    "defaultMessage": "Make anything into a key."
+  },
+  {
+    "id": "gui.extension.microbit.description",
+    "description": "Description for the 'micro:bit' extension",
+    "defaultMessage": "Connect your projects with the world."
+  },
+  {
+    "id": "gui.extension.microbit.prescanMessage",
+    "description": "Prompt before searching for a micro:bit",
+    "defaultMessage": "Turn on your micro:bit, then press the button below to start searching for your device."
+  },
+  {
+    "id": "gui.extension.microbit.scanBeginMessage",
+    "description": "Information shown while searching for a micro:bit, before one is found",
+    "defaultMessage": "Keep your micro:bit on and nearby."
+  },
+  {
+    "id": "gui.extension.microbit.connectingMessage",
+    "description": "Message to help people connect to their micro:bit.",
+    "defaultMessage": "Connecting"
+  },
+  {
+    "id": "gui.extension.gdxfor.description",
+    "description": "Description for the Vernier Go Direct Force and Acceleration sensor extension",
+    "defaultMessage": "Sense push, pull, motion, and spin."
+  },
+  {
+    "id": "gui.extension.gdxfor.prescanMessage",
+    "description": "Prompt before searching for a Vernier Go Direct device",
+    "defaultMessage": "Turn on your Go Direct, then press the button below to start searching for your device."
+  },
+  {
+    "id": "gui.extension.gdxfor.scanBeginMessage",
+    "description": "Information shown while searching for a Vernier Go Direct, before one is found",
+    "defaultMessage": "Keep your Vernier Go Direct on and nearby."
+  },
+  {
+    "id": "gui.extension.gdxfor.connectingMessage",
+    "description": "Message to help people connect to their force and acceleration sensor.",
+    "defaultMessage": "Connecting"
+  },
+  {
+    "id": "gui.extension.ev3.description",
+    "description": "Description for the 'LEGO MINDSTORMS EV3' extension",
+    "defaultMessage": "Build interactive robots and more."
+  },
+  {
+    "id": "gui.extension.ev3.prescanMessage",
+    "description": "Prompt before searching for a LEGO EV3",
+    "defaultMessage": "Turn on your LEGO EV3, then press the button below to start searching for your device."
+  },
+  {
+    "id": "gui.extension.ev3.scanBeginMessage",
+    "description": "Information shown while searching for a LEGO EV3, before one is found",
+    "defaultMessage": "Keep your LEGO EV3 on and nearby."
+  },
+  {
+    "id": "gui.extension.ev3.connectingMessage",
+    "description": "Message to help people connect to their EV3. Must note the PIN should be 1234.",
+    "defaultMessage": "Connecting. Make sure the pin on your EV3 is set to 1234."
+  },
+  {
+    "id": "gui.extension.boost.description",
+    "description": "Description for the 'LEGO BOOST' extension",
+    "defaultMessage": "Bring robotic creations to life."
+  },
+  {
+    "id": "gui.extension.boost.prescanMessage",
+    "description": "Prompt before searching for a LEGO BOOST",
+    "defaultMessage": "Press the button on your LEGO BOOST, then press the button below to start searching for your device."
+  },
+  {
+    "id": "gui.extension.boost.scanBeginMessage",
+    "description": "Information shown while searching for a LEGO BOOST, before one is found",
+    "defaultMessage": "Keep your LEGO BOOST awake and nearby."
+  },
+  {
+    "id": "gui.extension.boost.connectingMessage",
+    "description": "Message to help people connect to their BOOST.",
+    "defaultMessage": "Connecting"
+  },
+  {
+    "id": "gui.extension.wedo2.description",
+    "description": "Description for the 'LEGO WeDo 2.0' extension",
+    "defaultMessage": "Build with motors and sensors."
+  },
+  {
+    "id": "gui.extension.wedo2.prescanMessage",
+    "description": "Prompt before searching for a LEGO WeDo 2.0",
+    "defaultMessage": "Press the button on your LEGO WeDo 2.0, then press the button below to start searching for your device."
+  },
+  {
+    "id": "gui.extension.wedo2.scanBeginMessage",
+    "description": "Information shown while searching for a LEGO WeDo 2.0, before one is found",
+    "defaultMessage": "Keep your LEGO WeDo 2.0 awake and nearby."
+  },
+  {
+    "id": "gui.extension.wedo2.connectingMessage",
+    "description": "Message to help people connect to their WeDo.",
+    "defaultMessage": "Connecting"
+  }
+]
