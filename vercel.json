@@ -1,5 +1,5 @@
 {
-  "installCommand": "npm ci",
+  "installCommand": "npm ci --include=dev",
   "buildCommand": "npm run build:dev --workspace=@scratch/scratch-gui",
   "outputDirectory": "packages/scratch-gui/build"
 }

@@ -27,7 +27,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production npm run --workspaces build",
     "clean": "npm run --workspaces clean",
-    "prepare": "husky install",
+    "prepare": "node scripts/prepare-git-hooks.js",
     "refresh-gh-workflow": "ts-node scripts/update-gha-workflows.ts",
     "start": "npm --workspace @scratch/scratch-gui start",
     "test": "npm test --workspaces",
