@@ -26,6 +26,7 @@
   ],
   "scripts": {
     "build": "cross-env NODE_ENV=production npm run --workspaces build",
+    "build:vercel": "node scripts/vercel-build.js",
     "clean": "npm run --workspaces clean",
     "prepare": "node scripts/prepare-git-hooks.js",
     "refresh-gh-workflow": "ts-node scripts/update-gha-workflows.ts",
