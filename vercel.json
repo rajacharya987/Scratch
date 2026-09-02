@@ -1,5 +1,5 @@
 {
-  "installCommand": "NPM_CONFIG_PRODUCTION=false npm ci --include=dev",
-  "buildCommand": "npm exec --workspace=@scratch/scratch-gui -- cross-env BUILD_TYPE=dev webpack-cli",
+  "installCommand": "npm ci --include=dev",
+  "buildCommand": "NODE_ENV=development BUILD_TYPE=dev NODE_OPTIONS=--max-old-space-size=6144 npm exec --workspace=@scratch/scratch-gui -- webpack-cli --no-color",
   "outputDirectory": "packages/scratch-gui/build"
 }
