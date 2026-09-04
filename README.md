@@ -2,12 +2,14 @@
 
 ## Deploy on Vercel (one click)
 
-1. Push this repo to GitHub.
-2. In Vercel: **Add New Project** → import that GitHub repo.
-3. Leave Root Directory empty. `vercel.json` already sets install, build, and output (`packages/scratch-gui/build`).
-4. Click **Deploy**.
+Vercel often auto-selects `packages/task-herder` (Vite). That is the wrong app. Use the **repository root**.
 
-The live site is the Scratch editor. The driving game is at `/static/game/index.html` and is embedded on the stage.
+1. Import **rajacharya987/Scratch** from GitHub.
+2. Click **Root Directory** and change it from `packages/task-herder` to **`.`** (repo root). Leave it empty if that is the only way to pick the root.
+3. Set **Application Preset / Framework** to **Other**.
+4. Click **Deploy**. Do not change Install / Build / Output — `vercel.json` already sets them.
+
+If a project was already created with the wrong root: **Settings → General → Root Directory** → clear it, Framework **Other**, then **Redeploy**.
 
 If you'd like to use Scratch, please visit the [Scratch website](https://scratch.mit.edu/). You can build your own
 Scratch project by pressing "Create" on that website or by visiting <https://scratch.mit.edu/projects/editor/>.
