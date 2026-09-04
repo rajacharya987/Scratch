@@ -128,7 +128,16 @@ const baseConfig = new ScratchWebpackConfigBuilder(
         ]
     }));
 
-if (!process.env.CI) {
+if (process.env.VERCEL) {
+    let lastBucket = -1;
+    baseConfig.addPlugin(new webpack.ProgressPlugin((percent, message) => {
+        const bucket = Math.floor(percent * 10) * 10;
+        if (bucket !== lastBucket) {
+            lastBucket = bucket;
+            console.log(`webpack ${bucket}% ${message || ''}`.trim());
+        }
+    }));
+} else if (!process.env.CI) {
     baseConfig.addPlugin(new webpack.ProgressPlugin());
 }
 

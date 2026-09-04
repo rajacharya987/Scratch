@@ -36,13 +36,13 @@ if (!cli) {
 }
 console.log('vercel-build: using', cli);
 
-const result = spawnSync(process.execPath, [cli, '--progress', '--color'], {
+console.log('vercel-build: starting webpack');
+const result = spawnSync(process.execPath, [cli, '--color', '--stats', 'errors-warnings'], {
     cwd: guiDir,
     stdio: 'inherit',
     env: Object.assign({}, process.env, {
         NODE_ENV: 'development',
         BUILD_TYPE: 'dev',
-        CI: '',
         VERCEL: process.env.VERCEL || '1',
         WEBPACK_CLI_SKIP_INSTALL: 'true',
         NODE_OPTIONS: process.env.NODE_OPTIONS || '--max-old-space-size=6144'
@@ -53,6 +53,7 @@ if (result.error) {
     console.error('vercel-build:', result.error);
     process.exit(1);
 }
+console.log('vercel-build: webpack exit', result.status);
 if (result.status) {
     process.exit(result.status);
 }
