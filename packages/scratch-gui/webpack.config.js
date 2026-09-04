@@ -51,7 +51,11 @@ const baseConfig = new ScratchWebpackConfigBuilder(
                 '@scratch/scratch-render$': path.resolve(__dirname, '../scratch-render/src/index.js'),
                 '@scratch/scratch-vm$': path.resolve(__dirname, '../scratch-vm/src/index.js'),
                 '@scratch/scratch-render': path.resolve(__dirname, '../scratch-render'),
-                '@scratch/scratch-vm': path.resolve(__dirname, '../scratch-vm')
+                '@scratch/scratch-vm': path.resolve(__dirname, '../scratch-vm'),
+                '@scratch/scratch-storage$': path.resolve(__dirname, '../scratch-storage/src/index.ts'),
+                '@scratch/scratch-storage': path.resolve(__dirname, '../scratch-storage/src'),
+                '@scratch/task-herder$': path.resolve(__dirname, '../task-herder/src/index.ts'),
+                '@scratch/task-herder': path.resolve(__dirname, '../task-herder/src')
             },
             fallback: {
                 Buffer: require.resolve('buffer/'),
@@ -72,6 +76,23 @@ const baseConfig = new ScratchWebpackConfigBuilder(
                 '@babel/preset-env',
                 '@babel/preset-react'
             ]
+        }
+    })
+    .addModuleRule({
+        test: /\.tsx?$/,
+        include: [
+            path.resolve(__dirname, '../scratch-storage/src'),
+            path.resolve(__dirname, '../task-herder/src')
+        ],
+        loader: 'ts-loader',
+        options: {
+            transpileOnly: true,
+            compilerOptions: {
+                module: 'esnext',
+                moduleResolution: 'node',
+                allowJs: true,
+                skipLibCheck: true
+            }
         }
     })
     .addModuleRule({
@@ -254,7 +275,8 @@ const buildConfig = baseConfig.clone()
             {
                 from: 'extensions/**',
                 to: 'static',
-                context: 'src/examples'
+                context: 'src/examples',
+                noErrorOnMissing: true
             }
         ]
     }));
