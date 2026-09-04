@@ -3,22 +3,11 @@
   "framework": null,
   "installCommand": "NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm ci --include=dev",
   "buildCommand": "node scripts/vercel-build.js",
-  "outputDirectory": "packages/scratch-gui/build",
+  "outputDirectory": "public",
   "rewrites": [
     {
       "source": "/static/game",
       "destination": "/static/game/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/static/game/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=300"
-        }
-      ]
     }
   ]
 }

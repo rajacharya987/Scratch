@@ -2,14 +2,18 @@
 
 ## Deploy on Vercel (one click)
 
-Vercel often auto-selects `packages/task-herder` (Vite). That is the wrong app. Use the **repository root**.
+Vercel may auto-select `packages/task-herder` (Vite). That is the wrong app. Use these settings:
 
-1. Import **rajacharya987/Scratch** from GitHub.
-2. Click **Root Directory** and change it from `packages/task-herder` to **`.`** (repo root). Leave it empty if that is the only way to pick the root.
-3. Set **Application Preset / Framework** to **Other**.
-4. Click **Deploy**. Do not change Install / Build / Output — `vercel.json` already sets them.
+1. Delete any failed project named `scratch-task-herder` (or similar).
+2. Import **rajacharya987/Scratch**.
+3. **Root Directory:** empty / `.` (not `packages/task-herder`).
+4. **Framework:** Other.
+5. **Install Command:** `NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm ci --include=dev`
+6. **Build Command:** `node scripts/vercel-build.js`
+7. **Output Directory:** `public`
+8. Deploy.
 
-If a project was already created with the wrong root: **Settings → General → Root Directory** → clear it, Framework **Other**, then **Redeploy**.
+If the project already exists: **Settings → General** and paste those same values, then **Redeploy**.
 
 If you'd like to use Scratch, please visit the [Scratch website](https://scratch.mit.edu/). You can build your own
 Scratch project by pressing "Create" on that website or by visiting <https://scratch.mit.edu/projects/editor/>.

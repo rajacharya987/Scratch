@@ -34,7 +34,7 @@
   "scripts": {
     "build": "tsc --project tsconfig.build.json && vite build",
     "clean": "rimraf dist",
-    "dev": "vite",
+    "dev": "vite demo.html",
     "format": "prettier --write . && eslint --fix",
     "lint": "eslint && prettier --check .",
     "prepublishOnly": "echo \"Please publish through CI only.\" && exit 1",
