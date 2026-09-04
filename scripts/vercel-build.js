@@ -51,6 +51,28 @@ if (!cli) {
     process.exit(1);
 }
 console.log('vercel-build: using', cli);
+
+const run = (label, command, args, extraEnv) => {
+    console.log(`vercel-build: ${label}`);
+    const spawned = spawnSync(command, args, {
+        cwd: root,
+        stdio: 'inherit',
+        env: Object.assign({}, process.env, extraEnv || {})
+    });
+    if (spawned.error) {
+        console.error(`vercel-build: ${label} failed`, spawned.error);
+        process.exit(1);
+    }
+    if (spawned.status) {
+        console.error(`vercel-build: ${label} exit`, spawned.status);
+        process.exit(spawned.status);
+    }
+};
+
+// dist/ is gitignored, so Vercel has no prebuilt workspace bundles.
+run('build @scratch/task-herder', 'npm', ['run', 'build', '--workspace=@scratch/task-herder']);
+run('build @scratch/scratch-storage', 'npm', ['run', 'build', '--workspace=@scratch/scratch-storage']);
+
 console.log('vercel-build: starting webpack');
 
 const result = spawnSync(process.execPath, [cli, '--color', '--stats', 'errors-warnings'], {
