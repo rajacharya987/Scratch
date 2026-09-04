@@ -25,6 +25,7 @@ const StageComponent = props => {
         isColorPicking,
         isFullScreen,
         isStarted,
+        isRunning,
         colorInfo,
         micIndicator,
         question,
@@ -48,18 +49,69 @@ const StageComponent = props => {
     } = props;
 
     const stageDimensions = getStageDimensions(stageSize, isFullScreen);
+    const stageLive = Boolean(isRunning);
 
-    // Reload the embedded game iframe when stop button is clicked
-    const hasMountedRef = useRef(false);
+    // Green flag unlocks the stage so the player can click Play in the menu.
+    // Keyboard is forwarded into the iframe because Blockly otherwise steals WASD.
+    // Stop reloads the game so the next flag starts from the menu again.
+    const wasLiveRef = useRef(false);
     useEffect(() => {
-        if (!hasMountedRef.current) {
-            hasMountedRef.current = true;
-            return;
+        const frame = iframeRef.current;
+        if (!frame) return undefined;
+        const send = (action, extra) => {
+            try {
+                if (frame.contentWindow) {
+                    frame.contentWindow.postMessage(Object.assign({action, type: action}, extra || {}), '*');
+                }
+            } catch (err) { // eslint-disable-line no-unused-vars
+                // Cross-origin during first load is fine; the iframe still boots.
+            }
+        };
+        const onLoad = () => {
+            if (stageLive) {
+                send('unlock');
+                frame.focus();
+            }
+        };
+        frame.addEventListener('load', onLoad);
+        if (stageLive) {
+            send('unlock');
+            frame.focus();
+        } else if (wasLiveRef.current) {
+            send('stop');
+            frame.src = `/static/game/index.html?r=${Date.now()}`;
         }
-        if (!isStarted && iframeRef.current) {
-            iframeRef.current.src = iframeRef.current.src; // eslint-disable-line no-self-assign
-        }
-    }, [isStarted]);
+        wasLiveRef.current = stageLive;
+        return () => frame.removeEventListener('load', onLoad);
+    }, [stageLive]);
+    useEffect(() => {
+        if (!stageLive) return undefined;
+        const gameCodes = {
+            KeyW: 1, KeyA: 1, KeyS: 1, KeyD: 1,
+            ArrowUp: 1, ArrowDown: 1, ArrowLeft: 1, ArrowRight: 1,
+            ShiftLeft: 1, ShiftRight: 1, Space: 1, KeyR: 1, Enter: 1
+        };
+        const forward = e => {
+            const frame = iframeRef.current;
+            if (!frame || !frame.contentWindow) return;
+            const tag = e.target && e.target.tagName;
+            if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+            if (!gameCodes[e.code]) return;
+            frame.contentWindow.postMessage({
+                action: 'key',
+                type: 'key',
+                code: e.code,
+                isDown: e.type === 'keydown'
+            }, '*');
+            e.preventDefault();
+        };
+        window.addEventListener('keydown', forward, true);
+        window.addEventListener('keyup', forward, true);
+        return () => {
+            window.removeEventListener('keydown', forward, true);
+            window.removeEventListener('keyup', forward, true);
+        };
+    }, [stageLive]);
 
     return (
         <React.Fragment>
@@ -83,7 +135,8 @@ const StageComponent = props => {
                         ref={iframeRef}
                         className={styles.stageEmbeddedGame}
                         src="/static/game/index.html"
-                        title="Golden Hour 3D Driving"
+                        title="Scratch Stage"
+                        tabIndex={stageLive ? 0 : -1}
                         style={{
                             position: 'absolute',
                             top: 0,
@@ -91,7 +144,9 @@ const StageComponent = props => {
                             width: '100%',
                             height: '100%',
                             border: 'none',
-                            zIndex: 8
+                            zIndex: 8,
+                            opacity: 1,
+                            pointerEvents: stageLive ? 'auto' : 'none'
                         }}
                         allow="autoplay; fullscreen"
                     />
@@ -137,7 +192,10 @@ const StageComponent = props => {
                             />
                         ) : null}
                     </div>
-                    <Box className={styles.monitorWrapper}>
+                    <Box
+                        className={styles.monitorWrapper}
+                        style={{zIndex: 12}}
+                    >
                         <MonitorList
                             draggable={useEditorDragStyle}
                             stageSize={stageDimensions}
@@ -194,7 +252,7 @@ const StageComponent = props => {
                         width={0}
                     />
                 </Box>
-                {isStarted ? null : (
+                {stageLive ? null : (
                     <GreenFlagOverlay
                         className={styles.greenFlagOverlay}
                         wrapperClass={styles.greenFlagOverlayWrapper}
@@ -229,6 +287,7 @@ StageComponent.propTypes = {
     isColorPicking: PropTypes.bool,
     isFullScreen: PropTypes.bool.isRequired,
     isStarted: PropTypes.bool,
+    isRunning: PropTypes.bool,
     micIndicator: PropTypes.bool,
     onDeactivateColorPicker: PropTypes.func,
     onDoubleClick: PropTypes.func,

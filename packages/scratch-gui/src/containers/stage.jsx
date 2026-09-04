@@ -1,6 +1,7 @@
 import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
+import {Map} from 'immutable';
 import Renderer from '@scratch/scratch-render';
 import VM from '@scratch/scratch-vm';
 import {connect} from 'react-redux';
@@ -47,8 +48,11 @@ class Stage extends React.Component {
             'positionDragCanvas',
             'tickGizmo',
             'setGizmoMode',
-            'is3DWorld'
+            'is3DWorld',
+            'onGameTelemetry',
+            'applyGameTelemetry'
         ]);
+        this._lastTelemetry = null;
         this.state = {
             mouseDownTimeoutId: null,
             mouseDownPosition: null,
@@ -107,6 +111,7 @@ class Stage extends React.Component {
         this.updateRect();
         this.props.vm.runtime.addListener('QUESTION', this.questionListener);
         this._gizmoRaf = requestAnimationFrame(this.tickGizmo);
+        window.addEventListener('message', this.onGameTelemetry);
     }
     shouldComponentUpdate (nextProps, nextState) {
         return this.props.stageSize !== nextProps.stageSize ||
@@ -116,6 +121,7 @@ class Stage extends React.Component {
             this.state.question !== nextState.question ||
             this.props.micIndicator !== nextProps.micIndicator ||
             this.props.isStarted !== nextProps.isStarted ||
+            this.props.isRunning !== nextProps.isRunning ||
             this.props.editingTarget !== nextProps.editingTarget ||
             this.state.showGizmo !== nextState.showGizmo ||
             this.state.gizmoMode !== nextState.gizmoMode ||
@@ -127,6 +133,10 @@ class Stage extends React.Component {
             this.startColorPickingLoop();
         } else if (!this.props.isColorPicking && prevProps.isColorPicking) {
             this.stopColorPickingLoop();
+        }
+        if (prevProps.isRunning && !this.props.isRunning) {
+            this._lastTelemetry = {speed: 0, coins: 0, nitro: 0, distance: 0, rpm: 0};
+            this.applyGameTelemetry();
         }
         this.updateRect();
         this.renderer.resize(this.rect.width, this.rect.height);
@@ -140,7 +150,48 @@ class Stage extends React.Component {
         this.detachRectEvents();
         this.stopColorPickingLoop();
         this.props.vm.runtime.removeListener('QUESTION', this.questionListener);
+        window.removeEventListener('message', this.onGameTelemetry);
         if (this._gizmoRaf) cancelAnimationFrame(this._gizmoRaf);
+    }
+    onGameTelemetry (event) {
+        const data = event && event.data;
+        if (!data || data.type !== 'scratch_game_telemetry') return;
+        this._lastTelemetry = data;
+        this.applyGameTelemetry();
+    }
+    applyGameTelemetry () {
+        const data = this._lastTelemetry;
+        if (!data) return;
+        const runtime = this.props.vm.runtime;
+        const stage = runtime.getTargetForStage();
+        if (!stage || !stage.lookupVariableByNameAndType) return;
+        const pairs = [
+            ['Speed (km/h)', data.speed],
+            ['Coins 🪙', data.coins],
+            ['Nitro', data.nitro],
+            ['Distance (m)', data.distance],
+            ['RPM', data.rpm]
+        ];
+        let changed = false;
+        const monitors = runtime.getMonitorState();
+        for (let i = 0; i < pairs.length; i++) {
+            const value = pairs[i][1];
+            if (value === undefined || value === null) continue;
+            const variable = stage.lookupVariableByNameAndType(pairs[i][0], '');
+            if (!variable) continue;
+            variable.value = value;
+            const monitor = monitors.get(variable.id);
+            if (!monitor || monitor.get('value') !== value) changed = true;
+            runtime.requestUpdateMonitor(Map({
+                id: variable.id,
+                value: value
+            }));
+        }
+        if (changed) {
+            runtime.emit('MONITORS_UPDATE', runtime.getMonitorState());
+            runtime._prevMonitorState = runtime.getMonitorState();
+            runtime.requestRedraw();
+        }
     }
     questionListener (question) {
         this.setState({question: question});
@@ -312,6 +363,9 @@ class Stage extends React.Component {
     }
     tickGizmo () {
         this._gizmoRaf = requestAnimationFrame(this.tickGizmo);
+        if (this.props.isRunning) {
+            this.applyGameTelemetry();
+        }
         if (this.renderer && this.renderer.scene && this.renderer.scene.pointer &&
             !this._orbiting && !this._panning && !this._gizmoDrag && !this._movedThisFrame) {
             this.renderer.scene.pointer.dx = 0;
@@ -810,6 +864,7 @@ class Stage extends React.Component {
                 onMouseDown={this.onMouseDown}
                 onWheel={this.onWheel}
                 stageStackRef={this.setStageStack}
+                isRunning={this.props.isRunning}
                 {...props}
             />
         );
@@ -820,6 +875,7 @@ Stage.propTypes = {
     isColorPicking: PropTypes.bool,
     isFullScreen: PropTypes.bool.isRequired,
     isStarted: PropTypes.bool,
+    isRunning: PropTypes.bool,
     micIndicator: PropTypes.bool,
     onActivateColorPicker: PropTypes.func,
     onDeactivateColorPicker: PropTypes.func,
@@ -837,6 +893,7 @@ const mapStateToProps = state => ({
     isColorPicking: state.scratchGui.colorPicker.active,
     isFullScreen: state.scratchGui.mode.isFullScreen,
     isStarted: state.scratchGui.vmStatus.started,
+    isRunning: state.scratchGui.vmStatus.running,
     micIndicator: state.scratchGui.micIndicator,
     // Do not use editor drag style in fullscreen or player mode.
     useEditorDragStyle: !(state.scratchGui.mode.isFullScreen || state.scratchGui.mode.isPlayerOnly),

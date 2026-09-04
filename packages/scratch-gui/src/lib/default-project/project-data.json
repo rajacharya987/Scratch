@@ -39,10 +39,25 @@
         "golden_time": [
           "Golden Hour",
           35
+        ],
+        "race_author": [
+          "Author",
+          "Raj Acharya"
+        ],
+        "race_engine": [
+          "Engine",
+          "Nimo"
         ]
       },
       "lists": {},
-      "broadcasts": {},
+      "broadcasts": {
+        "race_play": "Play Race",
+        "race_menu": "Show Menu",
+        "race_go": "3 2 1 GO",
+        "race_finish": "Finish Line",
+        "race_nitro": "Nitro Burst",
+        "race_coin": "Collect Coin"
+      },
       "blocks": {
         "golden_1": {
           "opcode": "threed_enableWorld",
@@ -1414,7 +1429,17 @@
           "id": "golden_87"
         }
       },
-      "comments": {},
+      "comments": {
+        "dragRace": {
+          "blockId": null,
+          "x": 24,
+          "y": 24,
+          "width": 300,
+          "height": 210,
+          "minimized": false,
+          "text": "Quarter Mile Drag Race\n\nCreated by Raj Acharya\nDeveloper & founder of Nimo Game Engine\n\nThis project is a demonstration of Scratch and Nimo.\n\nGreen flag → Play\nP1 WASD · P2 arrows\nFirst to the lights wins."
+        }
+      },
       "currentCostume": 0,
       "costumes": [
         {
@@ -1472,6 +1497,3105 @@
           "godRayIntensity": 0.88
         }
       }
+    },
+    {
+      "isStage": false,
+      "name": "Quarter Mile",
+      "variables": {},
+      "lists": {},
+      "broadcasts": {},
+      "blocks": {
+        "hat_1": {
+          "opcode": "event_whenflagclicked",
+          "next": "c_2",
+          "parent": null,
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": true,
+          "x": 40,
+          "y": 40,
+          "id": "hat_1",
+          "comment": "note_88"
+        },
+        "c_2": {
+          "opcode": "looks_hide",
+          "next": "c_3",
+          "parent": "hat_1",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_2"
+        },
+        "c_3": {
+          "opcode": "threed_enableWorld",
+          "next": "c_4",
+          "parent": "c_2",
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_3"
+        },
+        "c_4": {
+          "opcode": "threed_enableVolumetricFog",
+          "next": "c_6",
+          "parent": "c_3",
+          "inputs": {
+            "STATE": [
+              1,
+              "m_5"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_4"
+        },
+        "m_5": {
+          "opcode": "threed_menu_onOff",
+          "next": null,
+          "parent": "c_4",
+          "inputs": {},
+          "fields": {
+            "onOff": [
+              "on",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "m_5"
+        },
+        "c_6": {
+          "opcode": "threed_setFogPreset",
+          "next": "c_8",
+          "parent": "c_4",
+          "inputs": {
+            "PRESET": [
+              1,
+              "m_7"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_6"
+        },
+        "m_7": {
+          "opcode": "threed_menu_fogPreset",
+          "next": null,
+          "parent": "c_6",
+          "inputs": {},
+          "fields": {
+            "fogPreset": [
+              "haze",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "m_7"
+        },
+        "c_8": {
+          "opcode": "threed_setFogDensity",
+          "next": "c_10",
+          "parent": "c_6",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_9"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_8"
+        },
+        "n_9": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_8",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "28",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_9"
+        },
+        "c_10": {
+          "opcode": "threed_showSun",
+          "next": "c_12",
+          "parent": "c_8",
+          "inputs": {
+            "STATE": [
+              1,
+              "m_11"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_10"
+        },
+        "m_11": {
+          "opcode": "threed_menu_onOff",
+          "next": null,
+          "parent": "c_10",
+          "inputs": {},
+          "fields": {
+            "onOff": [
+              "on",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "m_11"
+        },
+        "c_12": {
+          "opcode": "threed_showClouds",
+          "next": "c_14",
+          "parent": "c_10",
+          "inputs": {
+            "STATE": [
+              1,
+              "m_13"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_12"
+        },
+        "m_13": {
+          "opcode": "threed_menu_onOff",
+          "next": null,
+          "parent": "c_12",
+          "inputs": {},
+          "fields": {
+            "onOff": [
+              "on",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "m_13"
+        },
+        "c_14": {
+          "opcode": "threed_showGodRays",
+          "next": "c_16",
+          "parent": "c_12",
+          "inputs": {
+            "STATE": [
+              1,
+              "m_15"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_14"
+        },
+        "m_15": {
+          "opcode": "threed_menu_onOff",
+          "next": null,
+          "parent": "c_14",
+          "inputs": {},
+          "fields": {
+            "onOff": [
+              "on",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "m_15"
+        },
+        "c_16": {
+          "opcode": "threed_setCameraPosition",
+          "next": "c_20",
+          "parent": "c_14",
+          "inputs": {
+            "X": [
+              1,
+              "n_17"
+            ],
+            "Y": [
+              1,
+              "n_18"
+            ],
+            "Z": [
+              1,
+              "n_19"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_16"
+        },
+        "n_17": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_16",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_17"
+        },
+        "n_18": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_16",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "3.2",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_18"
+        },
+        "n_19": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_16",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "-9.4",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_19"
+        },
+        "c_20": {
+          "opcode": "threed_setCameraTarget",
+          "next": "c_24",
+          "parent": "c_16",
+          "inputs": {
+            "X": [
+              1,
+              "n_21"
+            ],
+            "Y": [
+              1,
+              "n_22"
+            ],
+            "Z": [
+              1,
+              "n_23"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_20"
+        },
+        "n_21": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_20",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_21"
+        },
+        "n_22": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_20",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0.7",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_22"
+        },
+        "n_23": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_20",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "8",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_23"
+        },
+        "c_24": {
+          "opcode": "threed_setCameraFov",
+          "next": "c_26",
+          "parent": "c_20",
+          "inputs": {
+            "FOV": [
+              1,
+              "n_25"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_24"
+        },
+        "n_25": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_24",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "58",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_25"
+        },
+        "c_26": {
+          "opcode": "threed_cameraFollow",
+          "next": "c_28",
+          "parent": "c_24",
+          "inputs": {
+            "SPRITE": [
+              1,
+              "m_27"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_26"
+        },
+        "m_27": {
+          "opcode": "threed_menu_sprites",
+          "next": null,
+          "parent": "c_26",
+          "inputs": {},
+          "fields": {
+            "sprites": [
+              "Player Car",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "m_27"
+        },
+        "c_28": {
+          "opcode": "data_setvariableto",
+          "next": "c_30",
+          "parent": "c_26",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_29"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Speed (km/h)",
+              "golden_speed"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_28"
+        },
+        "n_29": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_28",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_29"
+        },
+        "c_30": {
+          "opcode": "data_setvariableto",
+          "next": "c_32",
+          "parent": "c_28",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_31"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Coins 🪙",
+              "golden_coins"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_30"
+        },
+        "n_31": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_30",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_31"
+        },
+        "c_32": {
+          "opcode": "data_setvariableto",
+          "next": "c_34",
+          "parent": "c_30",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_33"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Nitro",
+              "golden_nitro"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_32"
+        },
+        "n_33": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_32",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "100",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_33"
+        },
+        "c_34": {
+          "opcode": "data_setvariableto",
+          "next": "c_36",
+          "parent": "c_32",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_35"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Distance (m)",
+              "golden_distance"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_34"
+        },
+        "n_35": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_34",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "402",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_35"
+        },
+        "c_36": {
+          "opcode": "data_setvariableto",
+          "next": "c_38",
+          "parent": "c_34",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_37"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "RPM",
+              "golden_rpm"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_36"
+        },
+        "n_37": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_36",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "900",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_37"
+        },
+        "c_38": {
+          "opcode": "data_setvariableto",
+          "next": "c_40",
+          "parent": "c_36",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_39"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Game State",
+              "golden_state"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_38"
+        },
+        "n_39": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_38",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_39"
+        },
+        "c_40": {
+          "opcode": "data_setvariableto",
+          "next": "c_42",
+          "parent": "c_38",
+          "inputs": {
+            "VALUE": [
+              1,
+              "t_41"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Author",
+              "race_author"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_40"
+        },
+        "t_41": {
+          "opcode": "text",
+          "next": null,
+          "parent": "c_40",
+          "inputs": {},
+          "fields": {
+            "TEXT": [
+              "Raj Acharya",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "t_41"
+        },
+        "c_42": {
+          "opcode": "data_setvariableto",
+          "next": "c_44",
+          "parent": "c_40",
+          "inputs": {
+            "VALUE": [
+              1,
+              "t_43"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Engine",
+              "race_engine"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_42"
+        },
+        "t_43": {
+          "opcode": "text",
+          "next": null,
+          "parent": "c_42",
+          "inputs": {},
+          "fields": {
+            "TEXT": [
+              "Nimo Game Engine",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "t_43"
+        },
+        "c_44": {
+          "opcode": "event_broadcast",
+          "next": "c_87",
+          "parent": "c_42",
+          "inputs": {
+            "BROADCAST_INPUT": [
+              1,
+              "bm_45"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_44"
+        },
+        "bm_45": {
+          "opcode": "event_broadcast_menu",
+          "next": null,
+          "parent": "c_44",
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Show Menu",
+              "race_menu"
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "bm_45"
+        },
+        "c_46": {
+          "opcode": "control_if",
+          "next": "c_51",
+          "parent": "c_87",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "c_47"
+            ],
+            "SUBSTACK": [
+              2,
+              "c_49"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_46"
+        },
+        "c_47": {
+          "opcode": "sensing_keypressed",
+          "next": null,
+          "parent": "c_46",
+          "inputs": {
+            "KEY_OPTION": [
+              1,
+              "k_48"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_47"
+        },
+        "k_48": {
+          "opcode": "sensing_keyoptions",
+          "next": null,
+          "parent": "c_47",
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "w",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "k_48"
+        },
+        "c_49": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "c_46",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_50"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Speed (km/h)",
+              "golden_speed"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_49"
+        },
+        "n_50": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_49",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "4",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_50"
+        },
+        "c_51": {
+          "opcode": "control_if",
+          "next": "c_56",
+          "parent": "c_46",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "c_52"
+            ],
+            "SUBSTACK": [
+              2,
+              "c_54"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_51"
+        },
+        "c_52": {
+          "opcode": "sensing_keypressed",
+          "next": null,
+          "parent": "c_51",
+          "inputs": {
+            "KEY_OPTION": [
+              1,
+              "k_53"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_52"
+        },
+        "k_53": {
+          "opcode": "sensing_keyoptions",
+          "next": null,
+          "parent": "c_52",
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "up arrow",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "k_53"
+        },
+        "c_54": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "c_51",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_55"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Speed (km/h)",
+              "golden_speed"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_54"
+        },
+        "n_55": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_54",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "4",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_55"
+        },
+        "c_56": {
+          "opcode": "control_if",
+          "next": "c_61",
+          "parent": "c_51",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "c_57"
+            ],
+            "SUBSTACK": [
+              2,
+              "c_59"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_56"
+        },
+        "c_57": {
+          "opcode": "sensing_keypressed",
+          "next": null,
+          "parent": "c_56",
+          "inputs": {
+            "KEY_OPTION": [
+              1,
+              "k_58"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_57"
+        },
+        "k_58": {
+          "opcode": "sensing_keyoptions",
+          "next": null,
+          "parent": "c_57",
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "s",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "k_58"
+        },
+        "c_59": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "c_56",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_60"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Speed (km/h)",
+              "golden_speed"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_59"
+        },
+        "n_60": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_59",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "-3",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_60"
+        },
+        "c_61": {
+          "opcode": "control_if",
+          "next": "c_66",
+          "parent": "c_56",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "c_62"
+            ],
+            "SUBSTACK": [
+              2,
+              "c_64"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_61"
+        },
+        "c_62": {
+          "opcode": "sensing_keypressed",
+          "next": null,
+          "parent": "c_61",
+          "inputs": {
+            "KEY_OPTION": [
+              1,
+              "k_63"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_62"
+        },
+        "k_63": {
+          "opcode": "sensing_keyoptions",
+          "next": null,
+          "parent": "c_62",
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "down arrow",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "k_63"
+        },
+        "c_64": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "c_61",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_65"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Speed (km/h)",
+              "golden_speed"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_64"
+        },
+        "n_65": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_64",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "-3",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_65"
+        },
+        "c_66": {
+          "opcode": "control_if",
+          "next": "c_73",
+          "parent": "c_61",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "c_67"
+            ],
+            "SUBSTACK": [
+              2,
+              "c_69"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_66"
+        },
+        "c_67": {
+          "opcode": "sensing_keypressed",
+          "next": null,
+          "parent": "c_66",
+          "inputs": {
+            "KEY_OPTION": [
+              1,
+              "k_68"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_67"
+        },
+        "k_68": {
+          "opcode": "sensing_keyoptions",
+          "next": null,
+          "parent": "c_67",
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "space",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "k_68"
+        },
+        "c_69": {
+          "opcode": "data_changevariableby",
+          "next": "c_71",
+          "parent": "c_66",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_70"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Nitro",
+              "golden_nitro"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_69"
+        },
+        "n_70": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_69",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "-2",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_70"
+        },
+        "c_71": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "c_69",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_72"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Speed (km/h)",
+              "golden_speed"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_71"
+        },
+        "n_72": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_71",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "6",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_72"
+        },
+        "c_73": {
+          "opcode": "control_if",
+          "next": "c_78",
+          "parent": "c_66",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "c_74"
+            ],
+            "SUBSTACK": [
+              2,
+              "c_76"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_73"
+        },
+        "c_74": {
+          "opcode": "sensing_keypressed",
+          "next": null,
+          "parent": "c_73",
+          "inputs": {
+            "KEY_OPTION": [
+              1,
+              "k_75"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_74"
+        },
+        "k_75": {
+          "opcode": "sensing_keyoptions",
+          "next": null,
+          "parent": "c_74",
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "a",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "k_75"
+        },
+        "c_76": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "c_73",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_77"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Game State",
+              "golden_state"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_76"
+        },
+        "n_77": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_76",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_77"
+        },
+        "c_78": {
+          "opcode": "control_if",
+          "next": "c_83",
+          "parent": "c_73",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "c_79"
+            ],
+            "SUBSTACK": [
+              2,
+              "c_81"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_78"
+        },
+        "c_79": {
+          "opcode": "sensing_keypressed",
+          "next": null,
+          "parent": "c_78",
+          "inputs": {
+            "KEY_OPTION": [
+              1,
+              "k_80"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_79"
+        },
+        "k_80": {
+          "opcode": "sensing_keyoptions",
+          "next": null,
+          "parent": "c_79",
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "d",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "k_80"
+        },
+        "c_81": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "c_78",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_82"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Game State",
+              "golden_state"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_81"
+        },
+        "n_82": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_81",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_82"
+        },
+        "c_83": {
+          "opcode": "data_changevariableby",
+          "next": "c_85",
+          "parent": "c_78",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_84"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Distance (m)",
+              "golden_distance"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_83"
+        },
+        "n_84": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_83",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "-1",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_84"
+        },
+        "c_85": {
+          "opcode": "control_wait",
+          "next": null,
+          "parent": "c_83",
+          "inputs": {
+            "DURATION": [
+              1,
+              "n_86"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_85"
+        },
+        "n_86": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_85",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0.05",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_86"
+        },
+        "c_87": {
+          "opcode": "control_forever",
+          "next": null,
+          "parent": "c_44",
+          "inputs": {
+            "SUBSTACK": [
+              2,
+              "c_46"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_87"
+        },
+        "hat_89": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "c_90",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Play Race",
+              "race_play"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 420,
+          "y": 40,
+          "id": "hat_89",
+          "comment": "note_108"
+        },
+        "c_90": {
+          "opcode": "data_setvariableto",
+          "next": "c_92",
+          "parent": "hat_89",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_91"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Speed (km/h)",
+              "golden_speed"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_90"
+        },
+        "n_91": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_90",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_91"
+        },
+        "c_92": {
+          "opcode": "data_setvariableto",
+          "next": "c_94",
+          "parent": "c_90",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_93"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Nitro",
+              "golden_nitro"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_92"
+        },
+        "n_93": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_92",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "100",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_93"
+        },
+        "c_94": {
+          "opcode": "data_setvariableto",
+          "next": "c_96",
+          "parent": "c_92",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_95"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Distance (m)",
+              "golden_distance"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_94"
+        },
+        "n_95": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_94",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "402",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_95"
+        },
+        "c_96": {
+          "opcode": "data_setvariableto",
+          "next": "c_98",
+          "parent": "c_94",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_97"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Game State",
+              "golden_state"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_96"
+        },
+        "n_97": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_96",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "1",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_97"
+        },
+        "c_98": {
+          "opcode": "control_wait",
+          "next": "c_100",
+          "parent": "c_96",
+          "inputs": {
+            "DURATION": [
+              1,
+              "n_99"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_98"
+        },
+        "n_99": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_98",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "1",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_99"
+        },
+        "c_100": {
+          "opcode": "control_wait",
+          "next": "c_102",
+          "parent": "c_98",
+          "inputs": {
+            "DURATION": [
+              1,
+              "n_101"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_100"
+        },
+        "n_101": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_100",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "1",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_101"
+        },
+        "c_102": {
+          "opcode": "control_wait",
+          "next": "c_104",
+          "parent": "c_100",
+          "inputs": {
+            "DURATION": [
+              1,
+              "n_103"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_102"
+        },
+        "n_103": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_102",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "1",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_103"
+        },
+        "c_104": {
+          "opcode": "event_broadcast",
+          "next": "c_106",
+          "parent": "c_102",
+          "inputs": {
+            "BROADCAST_INPUT": [
+              1,
+              "bm_105"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_104"
+        },
+        "bm_105": {
+          "opcode": "event_broadcast_menu",
+          "next": null,
+          "parent": "c_104",
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "3 2 1 GO",
+              "race_go"
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "bm_105"
+        },
+        "c_106": {
+          "opcode": "data_setvariableto",
+          "next": null,
+          "parent": "c_104",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_107"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Game State",
+              "golden_state"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_106"
+        },
+        "n_107": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_106",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "2",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_107"
+        },
+        "hat_109": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "c_110",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Show Menu",
+              "race_menu"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 800,
+          "y": 40,
+          "id": "hat_109"
+        },
+        "c_110": {
+          "opcode": "data_setvariableto",
+          "next": "c_112",
+          "parent": "hat_109",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_111"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Game State",
+              "golden_state"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_110"
+        },
+        "n_111": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_110",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_111"
+        },
+        "c_112": {
+          "opcode": "data_setvariableto",
+          "next": null,
+          "parent": "c_110",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_113"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Speed (km/h)",
+              "golden_speed"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_112"
+        },
+        "n_113": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_112",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_113"
+        },
+        "hat_114": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "c_115",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Collect Coin",
+              "race_coin"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 800,
+          "y": 220,
+          "id": "hat_114",
+          "comment": "note_117"
+        },
+        "c_115": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "hat_114",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_116"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Coins 🪙",
+              "golden_coins"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_115"
+        },
+        "n_116": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_115",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "1",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_116"
+        },
+        "hat_118": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "c_119",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Finish Line",
+              "race_finish"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 800,
+          "y": 400,
+          "id": "hat_118"
+        },
+        "c_119": {
+          "opcode": "data_setvariableto",
+          "next": "c_121",
+          "parent": "hat_118",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_120"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Game State",
+              "golden_state"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_119"
+        },
+        "n_120": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_119",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "3",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_120"
+        },
+        "c_121": {
+          "opcode": "data_setvariableto",
+          "next": null,
+          "parent": "c_119",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_122"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Speed (km/h)",
+              "golden_speed"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_121"
+        },
+        "n_122": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_121",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_122"
+        },
+        "hat_123": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "c_124",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Nitro Burst",
+              "race_nitro"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 420,
+          "y": 420,
+          "id": "hat_123"
+        },
+        "c_124": {
+          "opcode": "data_changevariableby",
+          "next": "c_126",
+          "parent": "hat_123",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_125"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Nitro",
+              "golden_nitro"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_124"
+        },
+        "n_125": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_124",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "-8",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_125"
+        },
+        "c_126": {
+          "opcode": "data_changevariableby",
+          "next": "c_128",
+          "parent": "c_124",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_127"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Speed (km/h)",
+              "golden_speed"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_126"
+        },
+        "n_127": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_126",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "12",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_127"
+        },
+        "c_128": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "c_126",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_129"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "RPM",
+              "golden_rpm"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_128"
+        },
+        "n_129": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_128",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "400",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_129"
+        },
+        "hat_130": {
+          "opcode": "event_whenkeypressed",
+          "next": "c_131",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "w",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 40,
+          "y": 720,
+          "id": "hat_130"
+        },
+        "c_131": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "hat_130",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_132"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Speed (km/h)",
+              "golden_speed"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_131"
+        },
+        "n_132": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_131",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "5",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_132"
+        },
+        "hat_133": {
+          "opcode": "event_whenkeypressed",
+          "next": "c_134",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "s",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 40,
+          "y": 860,
+          "id": "hat_133"
+        },
+        "c_134": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "hat_133",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_135"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Speed (km/h)",
+              "golden_speed"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_134"
+        },
+        "n_135": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_134",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "-4",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_135"
+        },
+        "hat_136": {
+          "opcode": "event_whenkeypressed",
+          "next": "c_137",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "a",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 40,
+          "y": 1000,
+          "id": "hat_136"
+        },
+        "c_137": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "hat_136",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_138"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Game State",
+              "golden_state"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_137"
+        },
+        "n_138": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_137",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_138"
+        },
+        "hat_139": {
+          "opcode": "event_whenkeypressed",
+          "next": "c_140",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "d",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 40,
+          "y": 1140,
+          "id": "hat_139"
+        },
+        "c_140": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "hat_139",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_141"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Game State",
+              "golden_state"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_140"
+        },
+        "n_141": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_140",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_141"
+        },
+        "hat_142": {
+          "opcode": "event_whenkeypressed",
+          "next": "c_143",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "space",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 40,
+          "y": 1280,
+          "id": "hat_142"
+        },
+        "c_143": {
+          "opcode": "data_changevariableby",
+          "next": "c_145",
+          "parent": "hat_142",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_144"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Nitro",
+              "golden_nitro"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_143"
+        },
+        "n_144": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_143",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "-3",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_144"
+        },
+        "c_145": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "c_143",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_146"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Speed (km/h)",
+              "golden_speed"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_145"
+        },
+        "n_146": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_145",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "8",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_146"
+        },
+        "hat_147": {
+          "opcode": "event_whenkeypressed",
+          "next": "c_148",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "up arrow",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 420,
+          "y": 720,
+          "id": "hat_147"
+        },
+        "c_148": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "hat_147",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_149"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Speed (km/h)",
+              "golden_speed"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_148"
+        },
+        "n_149": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_148",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "5",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_149"
+        },
+        "hat_150": {
+          "opcode": "event_whenkeypressed",
+          "next": "c_151",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "down arrow",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 420,
+          "y": 860,
+          "id": "hat_150"
+        },
+        "c_151": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "hat_150",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_152"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Speed (km/h)",
+              "golden_speed"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_151"
+        },
+        "n_152": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_151",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "-4",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_152"
+        },
+        "hat_153": {
+          "opcode": "event_whenkeypressed",
+          "next": "c_154",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "left arrow",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 420,
+          "y": 1000,
+          "id": "hat_153"
+        },
+        "c_154": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "hat_153",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_155"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Game State",
+              "golden_state"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_154"
+        },
+        "n_155": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_154",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_155"
+        },
+        "hat_156": {
+          "opcode": "event_whenkeypressed",
+          "next": "c_157",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "right arrow",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 420,
+          "y": 1140,
+          "id": "hat_156"
+        },
+        "c_157": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "hat_156",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_158"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Game State",
+              "golden_state"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_157"
+        },
+        "n_158": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_157",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_158"
+        },
+        "hat_159": {
+          "opcode": "event_whenkeypressed",
+          "next": "c_160",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "KEY_OPTION": [
+              "z",
+              null
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 420,
+          "y": 1280,
+          "id": "hat_159"
+        },
+        "c_160": {
+          "opcode": "data_changevariableby",
+          "next": "c_162",
+          "parent": "hat_159",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_161"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Nitro",
+              "golden_nitro"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_160"
+        },
+        "n_161": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_160",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "-3",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_161"
+        },
+        "c_162": {
+          "opcode": "event_broadcast",
+          "next": null,
+          "parent": "c_160",
+          "inputs": {
+            "BROADCAST_INPUT": [
+              1,
+              "bm_163"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_162"
+        },
+        "bm_163": {
+          "opcode": "event_broadcast_menu",
+          "next": null,
+          "parent": "c_162",
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Nitro Burst",
+              "race_nitro"
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "bm_163"
+        },
+        "hat_164": {
+          "opcode": "event_whenthisspriteclicked",
+          "next": "c_165",
+          "parent": null,
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": true,
+          "x": 800,
+          "y": 560,
+          "id": "hat_164"
+        },
+        "c_165": {
+          "opcode": "event_broadcast",
+          "next": null,
+          "parent": "hat_164",
+          "inputs": {
+            "BROADCAST_INPUT": [
+              1,
+              "bm_166"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_165"
+        },
+        "bm_166": {
+          "opcode": "event_broadcast_menu",
+          "next": null,
+          "parent": "c_165",
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "Play Race",
+              "race_play"
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "bm_166"
+        },
+        "hat_167": {
+          "opcode": "event_whenflagclicked",
+          "next": "c_182",
+          "parent": null,
+          "inputs": {},
+          "fields": {},
+          "shadow": false,
+          "topLevel": true,
+          "x": 1140,
+          "y": 40,
+          "id": "hat_167",
+          "comment": "note_183"
+        },
+        "c_168": {
+          "opcode": "control_if",
+          "next": "c_180",
+          "parent": "c_174",
+          "inputs": {
+            "CONDITION": [
+              2,
+              "c_169"
+            ],
+            "SUBSTACK": [
+              2,
+              "c_172"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_168"
+        },
+        "c_169": {
+          "opcode": "operator_gt",
+          "next": null,
+          "parent": "c_168",
+          "inputs": {
+            "OPERAND1": [
+              2,
+              "c_170"
+            ],
+            "OPERAND2": [
+              1,
+              "n_171"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_169"
+        },
+        "c_170": {
+          "opcode": "data_variable",
+          "next": null,
+          "parent": "c_169",
+          "inputs": {},
+          "fields": {
+            "VARIABLE": [
+              "Speed (km/h)",
+              "golden_speed"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_170"
+        },
+        "n_171": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_169",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "1",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_171"
+        },
+        "c_172": {
+          "opcode": "data_changevariableby",
+          "next": null,
+          "parent": "c_168",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_173"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "RPM",
+              "golden_rpm"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_172"
+        },
+        "n_173": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_172",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "20",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_173"
+        },
+        "c_174": {
+          "opcode": "threed_followHeading",
+          "next": "c_168",
+          "parent": "c_182",
+          "inputs": {
+            "SPRITE": [
+              1,
+              "m_175"
+            ],
+            "X": [
+              1,
+              "n_176"
+            ],
+            "Y": [
+              1,
+              "n_177"
+            ],
+            "Z": [
+              1,
+              "n_178"
+            ],
+            "LOOK_AHEAD": [
+              1,
+              "n_179"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_174"
+        },
+        "m_175": {
+          "opcode": "threed_menu_sprites",
+          "next": null,
+          "parent": "c_174",
+          "inputs": {},
+          "fields": {
+            "sprites": [
+              "Player Car",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "m_175"
+        },
+        "n_176": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_174",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_176"
+        },
+        "n_177": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_174",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "3.2",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_177"
+        },
+        "n_178": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_174",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "-9.4",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_178"
+        },
+        "n_179": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_174",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "8",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_179"
+        },
+        "c_180": {
+          "opcode": "control_wait",
+          "next": null,
+          "parent": "c_168",
+          "inputs": {
+            "DURATION": [
+              1,
+              "n_181"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_180"
+        },
+        "n_181": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_180",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "0.03",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_181"
+        },
+        "c_182": {
+          "opcode": "control_forever",
+          "next": null,
+          "parent": "hat_167",
+          "inputs": {
+            "SUBSTACK": [
+              2,
+              "c_174"
+            ]
+          },
+          "fields": {},
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_182"
+        },
+        "hat_184": {
+          "opcode": "event_whenbroadcastreceived",
+          "next": "c_185",
+          "parent": null,
+          "inputs": {},
+          "fields": {
+            "BROADCAST_OPTION": [
+              "3 2 1 GO",
+              "race_go"
+            ]
+          },
+          "shadow": false,
+          "topLevel": true,
+          "x": 1140,
+          "y": 420,
+          "id": "hat_184"
+        },
+        "c_185": {
+          "opcode": "data_setvariableto",
+          "next": null,
+          "parent": "hat_184",
+          "inputs": {
+            "VALUE": [
+              1,
+              "n_186"
+            ]
+          },
+          "fields": {
+            "VARIABLE": [
+              "Game State",
+              "golden_state"
+            ]
+          },
+          "shadow": false,
+          "topLevel": false,
+          "id": "c_185"
+        },
+        "n_186": {
+          "opcode": "math_number",
+          "next": null,
+          "parent": "c_185",
+          "inputs": {},
+          "fields": {
+            "NUM": [
+              "2",
+              null
+            ]
+          },
+          "shadow": true,
+          "topLevel": false,
+          "id": "n_186"
+        }
+      },
+      "comments": {
+        "note_88": {
+          "blockId": "hat_1",
+          "x": 40,
+          "y": 8,
+          "width": 260,
+          "height": 170,
+          "minimized": false,
+          "text": "Quarter Mile — Scratch + Nimo 3D\n\nCreated by Raj Acharya\nDeveloper & founder of Nimo Game Engine\n\nThis project is a demonstration of Scratch and Nimo.\nGreen flag starts the stage. Play begins the race."
+        },
+        "note_108": {
+          "blockId": "hat_89",
+          "x": 420,
+          "y": 8,
+          "width": 200,
+          "height": 90,
+          "minimized": false,
+          "text": "Countdown then drop the lights.\nP1 WASD · P2 arrows · Shift nitro"
+        },
+        "note_117": {
+          "blockId": "hat_114",
+          "x": 800,
+          "y": 188,
+          "width": 180,
+          "height": 70,
+          "minimized": false,
+          "text": "Gold coins on the strip.\nEach one adds 1 to Coins."
+        },
+        "note_183": {
+          "blockId": "hat_167",
+          "x": 1140,
+          "y": 8,
+          "width": 200,
+          "height": 80,
+          "minimized": false,
+          "text": "Keep the chase camera on the car\nand tick RPM while moving."
+        }
+      },
+      "currentCostume": 0,
+      "costumes": [
+        {
+          "assetId": "c933b6961759d82d4eb6afaec8d3041b",
+          "name": "race",
+          "bitmapResolution": 1,
+          "md5ext": "c933b6961759d82d4eb6afaec8d3041b.svg",
+          "dataFormat": "svg",
+          "rotationCenterX": 1,
+          "rotationCenterY": 1
+        }
+      ],
+      "sounds": [],
+      "volume": 100,
+      "visible": false,
+      "x": 0,
+      "y": 0,
+      "size": 100,
+      "direction": 90,
+      "draggable": false,
+      "rotationStyle": "all around",
+      "layerOrder": 98
     },
     {
       "isStage": false,
@@ -68830,6 +71954,6 @@
   "meta": {
     "semver": "3.0.0",
     "vm": "15.1.0",
-    "agent": "Golden Hour Scratch 3D generator"
+    "agent": "Raj Acharya — Nimo Game Engine + Scratch 3D"
   }
 }

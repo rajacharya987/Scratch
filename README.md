@@ -1,5 +1,14 @@
 # scratch-editor: The Scratch Editor Monorepo
 
+## Deploy on Vercel (one click)
+
+1. Push this repo to GitHub.
+2. In Vercel: **Add New Project** → import that GitHub repo.
+3. Leave Root Directory empty. `vercel.json` already sets install, build, and output (`packages/scratch-gui/build`).
+4. Click **Deploy**.
+
+The live site is the Scratch editor. The driving game is at `/static/game/index.html` and is embedded on the stage.
+
 If you'd like to use Scratch, please visit the [Scratch website](https://scratch.mit.edu/). You can build your own
 Scratch project by pressing "Create" on that website or by visiting <https://scratch.mit.edu/projects/editor/>.
 

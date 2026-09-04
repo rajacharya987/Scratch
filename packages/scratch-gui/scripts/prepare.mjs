@@ -110,6 +110,11 @@ const downloadMicrobitHex = async () => {
 };
 
 const prepare = async () => {
+    const generated = path.join(basePath, 'src', 'generated', 'microbit-hex-url.cjs');
+    if ((process.env.VERCEL || process.env.CI) && fs.existsSync(generated)) {
+        console.info('Skipping microbit download (CI/Vercel, generated file present)');
+        return;
+    }
     await downloadMicrobitHex();
 };
 

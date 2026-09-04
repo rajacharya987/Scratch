@@ -54,6 +54,7 @@
     height: 100%;
     border: none;
     z-index: 8;
+    pointer-events: none;
 }
 
 /* we want stage overlays to all be positioned in the same spot as the stage, but can't put them inside the border
@@ -80,6 +81,14 @@ body .green-flag-overlay-wrapper {
     top: 0;
     left: 0;
     pointer-events: none;
+}
+
+body .monitor-wrapper {
+    z-index: 12;
+}
+
+body .green-flag-overlay-wrapper {
+    z-index: 20;
 }
 
 .dragging-sprite {
@@ -128,7 +137,7 @@ body .green-flag-overlay-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(0,0,0,0.25);
+    background: rgba(0,0,0,0.12);
     border-radius: 0.5rem;
     pointer-events: all;
     cursor: pointer;
@@ -153,6 +162,10 @@ body .green-flag-overlay-wrapper {
 }
 
 
+
+.stage-embedded-game {
+    background: #111;
+}
 
 .stage-canvas-stack {
     position: relative;

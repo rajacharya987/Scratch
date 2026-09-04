@@ -88,8 +88,8 @@ const baseConfig = new ScratchWebpackConfigBuilder(
     .addPlugin(new CopyWebpackPlugin({
         patterns: [
             {
-                from: '../../game/game',
-                to: 'static/game'
+                from: '../../game/game/index.html',
+                to: 'static/game/index.html'
             },
             {
                 from: '../../node_modules/scratch-blocks/media',
@@ -185,11 +185,9 @@ const buildConfig = baseConfig.clone()
         output: {
             path: path.resolve(__dirname, 'build'),
 
-            // This output is loaded using a file:// scheme from the local file system.
-            // Having `publicPath: '/'` (the default) means the `gui.js` file in `build/index.html`
-            // would be looked for at the root of the filesystem, which is incorrect.
-            // Hence, we're resetting the public path to be relative.
-            publicPath: ''
+            // Local file:// needs a relative publicPath. Vercel serves at the site
+            // root, so use `/` there so /player.html and /static/game resolve.
+            publicPath: process.env.VERCEL ? '/' : ''
         }
     })
     .addPlugin(new HtmlWebpackPlugin({
@@ -230,7 +228,19 @@ const buildConfig = baseConfig.clone()
         patterns: [
             {
                 from: 'static',
-                to: 'static'
+                to: 'static',
+                globOptions: {
+                    ignore: [
+                        '**/game/shots/**',
+                        '**/game/ref/**',
+                        '**/game/docs/**',
+                        '**/game/*.mjs',
+                        '**/game/*.png',
+                        '**/game/*.md',
+                        '**/game/*.cmd',
+                        '**/game/package*.json'
+                    ]
+                }
             },
             {
                 from: 'extensions/**',
